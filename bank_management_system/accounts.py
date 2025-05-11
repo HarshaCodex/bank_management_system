@@ -5,21 +5,18 @@ class Account:
         self.__balance = balance
     
     def deposit(self, amount):
-        if amount >= 0:
-            self.__balance += amount
-            print(f"Balance after deposit:{self.__balance}")
-        else:
-            print("Enter positive amount")
+        if amount < 0:
+            raise ValueError("Amount must be positive")
+        self.__balance += amount
+        return self.__balance
     
     def withdraw(self, amount):
-        if amount >= 0:
-            if self.__balance >= amount:
-                self.__balance -= amount
-                print(f"Balance after withdraw:{self.__balance}")
-            else:
-                print("Not enough balance")
-        else:
-            print("Enter positive amount")
+        if amount < 0:
+            raise ValueError("Amount must be positve")
+        if self.__balance < amount:
+            raise ValueError("Insufficient funds")
+        self.__balance -= amount
+        return self.__balance
     
     def get_balance(self):
-        print(f"Your balance:{self.__balance}")
+        return self.__balance
