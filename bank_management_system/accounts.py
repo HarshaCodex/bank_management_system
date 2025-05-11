@@ -27,5 +27,9 @@ class Account:
     def balance(self):
         return self.__balance
     
+    @balance.setter
+    def balance(self, value):
+        self.__balance = value
+    
     def get_transaction_history(self):
         return self.transaction_history
