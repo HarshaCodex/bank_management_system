@@ -1,6 +1,4 @@
-from accounts.savings_account import SavingsAccount
-from accounts.checking_account import CheckingAccount
-
+from accounts import SavingsAccount, CheckingAccount
 
 class Bank:
 
