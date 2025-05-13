@@ -1,5 +1,5 @@
-from savings_account import SavingsAccount
-from checking_account import CheckingAccount
+from accounts.savings_account import SavingsAccount
+from accounts.checking_account import CheckingAccount
 
 
 class Bank:
