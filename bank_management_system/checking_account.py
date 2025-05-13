@@ -1,6 +1,6 @@
 from accounts import Account
 
-class Checking_Account(Account):
+class CheckingAccount(Account):
     def __init__(self, account_number, account_holder, balance, overdraft_limit):
         super().__init__(account_number, account_holder, balance)
         self.overdraft_limit = overdraft_limit

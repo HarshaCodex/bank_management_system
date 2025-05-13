@@ -1,5 +1,5 @@
 from savings_account import SavingsAccount
-from checking_account import Checking_Account
+from checking_account import CheckingAccount
 
 
 class Bank:
@@ -7,11 +7,13 @@ class Bank:
     def __init__(self):
         self.__accounts = {}
 
-    def create_account(self, account_type, account_number, holder, balance, extra_info):
+    def create_account(self, account_type, account_number, account_holder, balance, extra_info):
+        if account_number in self.__accounts:
+            raise ValueError("Account with this number already exists!")
         if account_type == 'savings':
-            account = SavingsAccount(account_number, holder, balance, extra_info)
+            account = SavingsAccount(account_number, account_holder, balance, extra_info)
         elif account_type == "checking":
-            account = Checking_Account(account_number, holder, balance, extra_info)
+            account = CheckingAccount(account_number, account_holder, balance, extra_info)
         else:
             raise ValueError("Create either checking or savings account")
         
@@ -33,7 +35,7 @@ class Bank:
     def show_all_accounts(self):
         for account in self.__accounts.values():
             print(f"Account Number:{account.account_number}")
-            print(f"Account Holder:{account.holder}")
+            print(f"Account Holder:{account.account_holder}")
             print(f"Balance:{account.balance}")
 
 
