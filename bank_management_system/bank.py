@@ -1,0 +1,42 @@
+from savings_account import SavingsAccount
+from checking_account import Checking_Account
+
+
+class Bank:
+
+    def __init__(self):
+        self.__accounts = {}
+
+    def create_account(self, account_type, account_number, holder, balance, extra_info):
+        if account_type == 'savings':
+            account = SavingsAccount(account_number, holder, balance, extra_info)
+        elif account_type == "checking":
+            account = Checking_Account(account_number, holder, balance, extra_info)
+        else:
+            raise ValueError("Create either checking or savings account")
+        
+        self.__accounts[account_number] = account
+        return account
+    
+    def get_account(self, account_number):
+        if account_number in self.__accounts:
+            return self.__accounts[account_number]
+        else:
+            raise ValueError("Account not found")
+    
+    def transfer(self, from_acc_number, to_acc_number, amount):
+        from_acc = self.get_account(from_acc_number)
+        to_acc = self.get_account(to_acc_number)
+        from_acc.withdraw(amount)
+        to_acc.deposit(amount)
+    
+    def show_all_accounts(self):
+        for account in self.__accounts.values():
+            print(f"Account Number:{account.account_number}")
+            print(f"Account Holder:{account.holder}")
+            print(f"Balance:{account.balance}")
+
+
+        
+    
+
