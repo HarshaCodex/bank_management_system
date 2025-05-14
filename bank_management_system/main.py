@@ -5,7 +5,6 @@ def main():
     bank = Bank()
     os.system('cls' if os.name == 'nt' else 'clear')
     while True:
-        
         print("\n===== Bank Menu =====")
         print("1. Create Account")
         print("2. Deposit")
@@ -24,7 +23,7 @@ def main():
         if user_choice == 7:
             break
         elif user_choice == 1:
-            account_type = input("Savings or Checking Account: ").lower()
+            account_type = input("Savings or Checking Account: ").strip().lower()
             account_number = int(input("Please enter desired account number: "))
             account_holder = input("Please enter the name of account holder: ")
             balance = float(input("Enter the amount to deposit: "))
@@ -40,6 +39,17 @@ def main():
                 print("Account created successfully")
             except ValueError as e:
                 print(f"Error: {e}")
+        elif user_choice == 2:
+            account_number = int(input("Please enter the account number to deposit: "))
+            deposit_amount = float(input("Please enter amount to deposit: "))
+            try:
+                account = bank.get_account(account_number)
+                account.deposit(deposit_amount)
+                print("Amount deposited successfully")
+                print(f"Your balance:{account.balance}")
+            except ValueError as e:
+                print(f"Error: {e}")
+            
         else:
             print("Please enter options from 1-7 only")
 
