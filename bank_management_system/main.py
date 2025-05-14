@@ -59,6 +59,17 @@ def main():
                 print(f"Your balance:{account.balance}")
             except ValueError as e:
                 print(f"Error: {e}")
+        elif user_choice == 4:
+            from_account = int(input("Enter your account number to transfer from: "))
+            to_account = int(input("Enter the account number to transfer to: "))
+            transfer_amount = float(input("Enter amount to transfer: "))
+            try:
+                bank.transfer(from_account, to_account, transfer_amount)
+                from_account = bank.get_account(from_account)
+                print("Amount transferred successfully!")
+                print(f"Your updated balance:{from_account.balance}")
+            except ValueError as e:
+                print(f"Error: {e}")
         else:
             print("Please enter options from 1-7 only")
 
