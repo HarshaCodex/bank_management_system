@@ -34,10 +34,16 @@ class Bank:
         if not self.__accounts:
             print("No Accounts avaialble")
             return None
-        for account in self.__accounts.values():
-            print(f"Account Number:{account.account_number}")
-            print(f"Account Holder:{account.account_holder}")
-            print(f"Balance:{account.balance}")
+        print("\n===== All Bank Accounts =====")
+        for acc in self.__accounts.values():
+            print(f"\nAccount Number : {acc.account_number}")
+            print(f"Account Holder : {acc.account_holder}")
+            print(f"Account Type   : {type(acc).__name__}")
+            print(f"Balance        : {acc.balance}")
+            if hasattr(acc, 'interest_rate'):
+                print(f"Interest Rate  : {acc.interest_rate}")
+            if hasattr(acc, 'overdraft_limit'):
+                print(f"Overdraft Limit: {acc.overdraft_limit}")
 
 
         
