@@ -3,8 +3,8 @@ import os
 
 def main():
     bank = Bank()
-    os.system('cls' if os.name == 'nt' else 'clear')
     while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("\n===== Bank Menu =====")
         print("1. Create Account")
         print("2. Deposit")
@@ -52,6 +52,8 @@ def main():
             
         else:
             print("Please enter options from 1-7 only")
+            
+        input("Please enter to continue")
 
 
 if __name__ == "__main__":
