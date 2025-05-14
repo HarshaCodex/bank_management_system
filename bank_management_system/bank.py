@@ -31,6 +31,9 @@ class Bank:
         to_acc.deposit(amount)
     
     def show_all_accounts(self):
+        if not self.__accounts:
+            print("No Accounts avaialble")
+            return None
         for account in self.__accounts.values():
             print(f"Account Number:{account.account_number}")
             print(f"Account Holder:{account.account_holder}")

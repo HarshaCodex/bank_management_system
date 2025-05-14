@@ -70,6 +70,24 @@ def main():
                 print(f"Your updated balance:{from_account.balance}")
             except ValueError as e:
                 print(f"Error: {e}")
+        elif user_choice == 5:
+            account_number = int(input("Enter the account number to view: "))
+            try:
+                account = bank.get_account(account_number)
+                print("\n===== Account Details =====")
+                print(f"Account Number : {account.account_number}")
+                print(f"Account Holder : {account.account_holder}")
+                print(f"Account Type   : {type(account).__name__}")
+                print(f"Balance        : {account.balance}")
+
+                if hasattr(account, 'interest_rate'):
+                    print(f"Interest Rate  : {account.interest_rate}")
+                if hasattr(account, 'overdraft_limit'):
+                    print(f"Overdraft Limit: {account.overdraft_limit}")
+            except ValueError as e:
+                print(f"Error: {e}")
+        elif user_choice == 6:
+            bank.show_all_accounts()
         else:
             print("Please enter options from 1-7 only")
 
