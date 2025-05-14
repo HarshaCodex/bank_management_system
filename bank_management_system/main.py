@@ -49,10 +49,19 @@ def main():
                 print(f"Your balance:{account.balance}")
             except ValueError as e:
                 print(f"Error: {e}")
-            
+        elif user_choice == 3:
+            account_number = int(input("Please enter the account number to withdraw: "))
+            withdraw_amount = float(input("Please enter amount to withdraw: "))
+            try:
+                account = bank.get_account(account_number)
+                account.withdraw(withdraw_amount)
+                print("Amount wihdrawn successfully!")
+                print(f"Your balance:{account.balance}")
+            except ValueError as e:
+                print(f"Error: {e}")
         else:
             print("Please enter options from 1-7 only")
-            
+
         input("Please enter to continue")
 
 
