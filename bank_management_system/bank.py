@@ -1,4 +1,5 @@
 from accounts import SavingsAccount, CheckingAccount
+import pickle
 
 class Bank:
 
@@ -44,6 +45,20 @@ class Bank:
                 print(f"Interest Rate  : {acc.interest_rate}")
             if hasattr(acc, 'overdraft_limit'):
                 print(f"Overdraft Limit: {acc.overdraft_limit}")
+    
+    def save_to_file(self, filename):
+        try:
+            with open(filename, 'wb') as file:
+                pickle.dump(self.__accounts, file)
+        except (OSError, pickle.PickleError) as e:
+            print(f"Failed to save data: {e}")
+    
+    def load_from_file(self, filename):
+        try:
+            with open(filename, "rb") as file:
+                self.__accounts = pickle.load(file)
+        except FileNotFoundError:
+            self.__accounts = {}
 
 
         
