@@ -3,6 +3,7 @@ import os
 
 def main():
     bank = Bank()
+    bank.load_from_file("accounts.pkl")
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("\n===== Bank Menu =====")
@@ -21,6 +22,7 @@ def main():
             continue
 
         if user_choice == 7:
+            bank.save_to_file("accounts.pkl")
             break
         elif user_choice == 1:
             account_type = input("Savings or Checking Account: ").strip().lower()
