@@ -9,7 +9,7 @@ class CheckingAccount(Account):
         if amount < 0:
             raise ValueError("Enter positive amount only")
         if self.balance + self.overdraft_limit < amount:
-            raise ValueError("Insufficent funds including overdraft limit")
+            raise ValueError("Insufficient funds including overdraft limit")
         self.balance -= amount
         transaction_log = {"type": "Withdraw", "amount": amount, "balance": self.balance}
         self.transaction_history.append(transaction_log)

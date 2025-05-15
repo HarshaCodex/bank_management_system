@@ -57,7 +57,7 @@ def main():
             try:
                 account = bank.get_account(account_number)
                 account.withdraw(withdraw_amount)
-                print("Amount wihdrawn successfully!")
+                print("Amount withdrawn successfully!")
                 print(f"Your balance:{account.balance}")
             except ValueError as e:
                 print(f"Error: {e}")

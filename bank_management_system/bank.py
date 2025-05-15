@@ -33,7 +33,7 @@ class Bank:
     
     def show_all_accounts(self):
         if not self.__accounts:
-            print("No Accounts avaialble")
+            print("No Accounts available")
             return None
         print("\n===== All Bank Accounts =====")
         for acc in self.__accounts.values():

@@ -8,4 +8,4 @@ class SavingsAccount(Account):
     def apply_interest(self):
         interest = self.balance * (self.interest_rate/100)
         self.deposit(interest)
-        print(f"Interst of {interest} applied to the account.")
+        print(f"Interest of {interest} applied to the account.")
